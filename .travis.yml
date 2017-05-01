@@ -3,14 +3,12 @@ sudo: false
 
 matrix:
   include:
-    - go: 1.8
-    - go: tip
+    - go: 1.8.x
 
 install:
   - # Skip
 
 script:
   - go get -t -v ./...
-  - diff -u <(echo -n) <(gofmt -d .)
   - go tool vet .
   - go test -v -race ./...
