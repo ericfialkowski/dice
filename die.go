@@ -77,7 +77,7 @@ func NewD20() *Die {
 
 // Roll returns a random Die roll
 func (d *Die) Roll() int {
-	return (d.r.Int() % d.sides) + 1
+	return d.r.Intn(d.sides) + 1
 }
 
 // RollMulti returns the sum of a count of random Die rolls
