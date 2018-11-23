@@ -55,12 +55,12 @@ func NewD6() *Die {
 	return NewDie(6)
 }
 
-// NewD8 returns a new 4 sided Die
+// NewD8 returns a new 8 sided Die
 func NewD8() *Die {
 	return NewDie(8)
 }
 
-// NewD10 returns a new 6 sided Die
+// NewD10 returns a new 10 sided Die
 func NewD10() *Die {
 	return NewDie(10)
 }
@@ -70,10 +70,16 @@ func NewD12() *Die {
 	return NewDie(12)
 }
 
-// NewD20 returns a new 6 sided Die
+// NewD20 returns a new 20 sided Die
 func NewD20() *Die {
 	return NewDie(20)
 }
+
+// NewD30 returns a new 30 sided Die
+func NewD30() *Die {
+	return NewDie(30)
+}
+
 
 // Roll returns a random Die roll
 func (d *Die) Roll() int {

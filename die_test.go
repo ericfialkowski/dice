@@ -53,6 +53,10 @@ func TestD20(t *testing.T) {
 	testRoll(NewD20(), 20, t)
 }
 
+func TestD30(t *testing.T) {
+	testRoll(NewD30(), 30, t)
+}
+
 func Test5Sided(t *testing.T) {
 	testSides(5, t)
 }
