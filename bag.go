@@ -43,14 +43,12 @@ func NewBag() *Bag {
 
 // Get returns a Die of the requested number of sides
 func (b *Bag) Get(sides int) Die {
-	_, found := b.bag[sides]
-	if !found {
+	if _, found := b.bag[sides]; !found {
 		b.lock.Lock()
-		_, found := b.bag[sides]
-		if !found {
+		defer b.lock.Unlock()
+		if _, found := b.bag[sides]; !found {
 			b.bag[sides] = NewDie(sides)
 		}
-		b.lock.Unlock()
 	}
 	return *b.bag[sides]
 }

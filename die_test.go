@@ -57,6 +57,10 @@ func TestD30(t *testing.T) {
 	testRoll(NewD30(), 30, t)
 }
 
+func TestD100(t *testing.T) {
+	testRoll(NewD100(), 100, t)
+}
+
 func Test5Sided(t *testing.T) {
 	testSides(5, t)
 }
@@ -84,7 +88,6 @@ func TestCustomRand(t *testing.T) {
 	for i := 0; i < 1000000; i++ {
 		if d1.Roll() != d2.Roll() {
 			t.Error(`values don't match`)
-			t.FailNow()
 		}
 	}
 }
@@ -98,11 +101,9 @@ func testRoll(d *Die, high int, t *testing.T) {
 		r := d.Roll()
 		if r < 1 {
 			t.Error(`value too low`)
-			t.FailNow()
 		}
 		if r > high {
 			t.Error(`value too high`)
-			t.FailNow()
 		}
 	}
 }
@@ -112,11 +113,9 @@ func testRollMulti(d *Die, count int, high int, t *testing.T) {
 		r := d.RollMulti(count)
 		if r < count {
 			t.Error(`value too low`)
-			t.FailNow()
 		}
 		if r > high {
 			t.Error(`value too high`)
-			t.FailNow()
 		}
 	}
 }

@@ -80,6 +80,10 @@ func NewD30() *Die {
 	return NewDie(30)
 }
 
+// NewD100 returns a new 100 sided Die
+func NewD100() *Die {
+	return NewDie(100)
+}
 
 // Roll returns a random Die roll
 func (d *Die) Roll() int {
@@ -88,7 +92,7 @@ func (d *Die) Roll() int {
 
 // RollMulti returns the sum of a count of random Die rolls
 func (d *Die) RollMulti(count int) int {
-	var rtn int
+	rtn := 0
 	for i := 0; i < count; i++ {
 		rtn += d.Roll()
 	}
