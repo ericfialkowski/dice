@@ -30,8 +30,8 @@ import (
 
 // Bag holds instances of Die
 type Bag struct {
-	bag  map[int]*Die
-	lock sync.Mutex
+	bag map[int]*Die
+	sync.Mutex
 }
 
 // NewBag creates a new bag for holding dice
@@ -44,8 +44,8 @@ func NewBag() *Bag {
 // Get returns a Die of the requested number of sides
 func (b *Bag) Get(sides int) Die {
 	if _, found := b.bag[sides]; !found {
-		b.lock.Lock()
-		defer b.lock.Unlock()
+		b.Lock()
+		defer b.Unlock()
 		if _, found := b.bag[sides]; !found {
 			b.bag[sides] = NewDie(sides)
 		}
